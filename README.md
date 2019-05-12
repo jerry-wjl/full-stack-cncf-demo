@@ -66,12 +66,12 @@ To destroy the gluster cluster
 
      $ vagrant destroy -f
 
-
 Ports
 =====
 
 Jenkins is running on port 4000
 docker registry is on port 5000
+mongo db on 27017
 
 Next steps
 ==========
