@@ -9,9 +9,11 @@ for pipeline demonstrations
 
 The 3 VMS are all with Oracle Linux 7.6:
 
-    1. devnode with IP 192.168.56.100. This contains the development enviroment. It will set up a user "demo". The generated id_rsa can be used to login to the system. This node contains kubectl, docker private registry with self signed SSL to hold the kubernetes images, jenkins, mongo and a git repository.
-    2. Kubernetes master node with IP 192168.56.101
-    3. Kubernetes worker node with IP 192168.56.102
+    1. devnode with IP 192.168.56.100. This contains the development enviroment. It will set up a user "demo".
+       The generated id_rsa can be used to login to the system. This node contains kubectl, docker private
+       registry with self signed SSL to hold the kubernetes images, jenkins, mongo and a git repository.
+    2. kmaster  with IP 192168.56.101. This is the kubernetes master node.
+    3. kworker1 with IP 192168.56.102. This is the kubernetes worker node.
 
 Initalizing the environment
 ============================
@@ -44,22 +46,32 @@ Now download the Vagrant file in the git repo and start it
 After some time you should now have a full development environment ready. It is suggested you
 add the host ip/name combination to your local host file for demo purposes. So add
 
-   192.168.56.100 devnode
-   192.168.56.101 kmaster
-   192.168.56.102 kworker1
+    192.168.56.100 devnode
+    192.168.56.101 kmaster
+    192.168.56.102 kworker1
 
 Once done, on your local host (not vm) you should be able to go to the URL where jenkins is running
 
      http://devnode:4000
 
 And you should get the jenkins welcome screen. You can login passwordless to the devnode as user demo using
+    
+     $ ssh demo@devnode -i id_rsa
 
-    ssh demo@devnode -i id_rsa
+You can check the status of the kubernetes cluster from the devnode (after you have logged in above) using
+
+     $ kubectl get nodes
 
 To destroy the gluster cluster
 
      $ vagrant destroy -f
 
+
+Ports
+=====
+
+Jenkins is running on port 4000
+docker registry is on port 5000
 
 Next steps
 ==========
