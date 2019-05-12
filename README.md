@@ -85,10 +85,10 @@ Ports
 
 These are the open ports on devnode
 
-      *jenkins* is running on port 4000
-      *docker registry* is on port 5000
-      *mongodb* on 27017
-      *git* is accessible via ssh port 22
+      **jenkins** is running on port 4000
+      **docker registry** is on port 5000
+      **mongodb** on 27017
+      **git** is accessible via ssh port 22
 
 Next steps
 ==========
