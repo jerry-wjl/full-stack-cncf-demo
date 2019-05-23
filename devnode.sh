@@ -66,12 +66,16 @@ printf '#!/bin/sh\ndocker run -itd -p :5000:5000 -v `pwd`:/certs -e REGISTRY_HTT
 chmod +x /home/demo/registry.sh
 /home/demo/registry.sh
 
+# Pull node
+docker pull node
+
+# Fix ownership because we did everything as root
+chown -R demo:demo /home/demo
+
+# Finally pull container registry images
+
 if [ -f /vagrant/ocr.txt ]; then
     . /vagrant/ocr.txt
     docker login -u $OCRUSER  -p $OCRPASS container-registry.oracle.com
     kubeadm-registry.sh --to devnode:5000
-    rm -f ocr.txt
 fi
-
-# Fix ownership because we did everything as root
-chown -R demo:demo /home/demo
