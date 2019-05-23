@@ -34,6 +34,7 @@ chmod go-rw /root/.ssh/*
 # Make a demo user with password welcome1
 useradd demo -p "$6$/HTxL3YE$ZNXjFmj4SpgDzeR6EgxkTtDPQCCVa1aW9r0NdggyA9jlozQojKkDEvC1cWFyM1TvABppkkWh/gKhu7LJRAo8V/" -G wheel,docker
 mkdir -p /home/demo/.ssh
+cp /vagrant/id_rsa /home/demo/.ssh/
 cp /vagrant/id_rsa.pub /home/demo/.ssh/authorized_keys
 mkdir -p /home/demo/.kube
 
@@ -43,9 +44,9 @@ printf '#!/bin/sh\nnohup java -jar jenkins.war --httpPort=4000 &\n' >/home/demo/
 chmod +x /home/demo/jenkins.sh
 (cd /home/demo; su - demo jenkins.sh)
 
-# Git
+# Git repo
 mkdir /home/demo/git
-(cd /home/demo/git; git init cncfdemo)
+(cd /home/demo/git; git init cncfdemo --bare)
 
 # Mongodb
 sed -i s/^bind_ip/#bind_ip/ /etc/mongod.conf
