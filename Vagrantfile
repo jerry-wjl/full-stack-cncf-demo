@@ -10,8 +10,9 @@ unless File.exists?("id_rsa")
 end 
 
 Vagrant.configure("2") do |config|
-
-  # devnode - 192.168.56.100
+  config.vm.base_mac = nil
+  
+  # devnode - 192.168.56.200
   # developer node with jenkins, git, docker registry
 
   config.vm.define "devnode" do |devnode|
@@ -29,11 +30,11 @@ Vagrant.configure("2") do |config|
     
     devnode.vm.box = "ol76"
     devnode.vm.hostname = "devnode"
-    devnode.vm.network "private_network", ip: "192.168.56.100"
+    devnode.vm.network "private_network", ip: "192.168.56.200"
     devnode.vm.provision :shell, path: "devnode.sh"
     end
 
-  # kmaster- 192.168.56.101
+  # kmaster- 192.168.56.201
   # The kubernetes master
   config.vm.define "kmaster" do |kmaster|
     kmaster.vm.provider "virtualbox" do |vb|
@@ -50,11 +51,11 @@ Vagrant.configure("2") do |config|
     
     kmaster.vm.box = "ol76"
     kmaster.vm.hostname = "kmaster"
-    kmaster.vm.network "private_network", ip: "192.168.56.101"
+    kmaster.vm.network "private_network", ip: "192.168.56.201"
     kmaster.vm.provision :shell, path: "kmaster.sh"
   end
   
-  # kworker - 192.168.56.102
+  # kworker - 192.168.56.202
   # The kubernetes worker node
   config.vm.define "kworker1" do |kworker1|
     kworker1.vm.provider "virtualbox" do |vb|
@@ -71,7 +72,7 @@ Vagrant.configure("2") do |config|
     
     kworker1.vm.box = "ol76"
     kworker1.vm.hostname = "kworker1"
-    kworker1.vm.network "private_network", ip: "192.168.56.102"
+    kworker1.vm.network "private_network", ip: "192.168.56.202"
     kworker1.vm.provision :shell, path: "kworker1.sh"
   end
 end

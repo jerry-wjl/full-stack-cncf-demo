@@ -4,7 +4,7 @@ setenforce 0
 sed -i '/^SELINUX.*/s//SELINUX=disabled/' /etc/selinux/config
 
 # Set up hosts file
-printf '192.168.56.100 devnode\n192.168.56.101 kmaster\n192.168.56.102 kworker1\n' >>/etc/hosts
+printf '192.168.56.200 devnode\n192.168.56.201 kmaster\n192.168.56.202 kworker1\n' >>/etc/hosts
 
 # Allow root ssh logins 
 printf '\nPermitRootLogin yes\n' >> /etc/ssh/sshd_config

@@ -9,7 +9,7 @@ for pipeline demonstrations
 
 The 3 VMS are all with Oracle Linux 7.6:
 
-    1. devnode with IP 192.168.56.100. This contains the development enviroment. It will set up a user "demo".
+    1. devnode with IP 192.168.56.200. This contains the development enviroment. It will set up a user "demo".
        The generated id_rsa can be used to login to the system. This node contains kubectl, docker private
        registry with self signed SSL to hold the kubernetes images, jenkins, mongo and a git repository.
     2. kmaster  with IP 192168.56.101. This is the kubernetes master node.
@@ -50,9 +50,9 @@ the devnode VM has completed pulling all the nodes from the OCR)
 After some time you should now have a full development environment ready to use. It is suggested you
 add the host ip/name combination to your local host file for demo purposes. So add
 
-    192.168.56.100 devnode
-    192.168.56.101 kmaster
-    192.168.56.102 kworker1
+    192.168.56.200 devnode
+    192.168.56.201 kmaster
+    192.168.56.202 kworker1
 
 to your /etc/hosts file. Once done, on your local host (not vm) you should be able to go to the URL
 where jenkins is running

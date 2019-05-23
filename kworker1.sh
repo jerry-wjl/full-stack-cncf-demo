@@ -4,7 +4,7 @@ setenforce 0
 sed -i '/^SELINUX.*/s//SELINUX=disabled/' /etc/selinux/config
 
 # set up hosts file
-printf '192.168.56.100 devnode\n192.168.56.101 kmaster\n192.168.56.102 kworker1\n' >>/etc/hosts
+printf '192.168.56.200 devnode\n192.168.56.201 kmaster\n192.168.56.202 kworker1\n' >>/etc/hosts
 
 # allow root ssh logins 
 printf '\nPermitRootLogin yes\n' >> /etc/ssh/sshd_config
@@ -43,7 +43,7 @@ systemctl start docker
 
 echo export KUBE_REPO_PREFIX=devnode:5000 >>~/.bashrc
 export KUBE_REPO_PREFIX=devnode:5000
-KMASTERIP=192.168.56.101
+KMASTERIP=192.168.56.201
 iptables -P FORWARD ACCEPT
 
 TOKEN=`ssh root@kmaster "kubeadm token list"|awk 'NR==2 {print $1}'`
