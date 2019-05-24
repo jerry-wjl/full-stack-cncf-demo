@@ -4,16 +4,16 @@ Full Stack CNCF Demo Environment
 This repository is a way to demo a CNCF dev environmant to a customer site totally disconnected from a nework.
 This should build hands off without any interaction. It works well on a 16GB laptop as there are 3 VM instances
 created each of 4GB. It has been tested on Linux and Mac without issues. It demonstrates several features from our
-LOB including Virtualbox, kubernetes, and git, mongo, node all pulled from our local repos. Also jenkins (though not the X)
-for pipeline demonstrations
+LOB including Virtualbox, kubernetes, and git, mongo, node all pulled from our local repos. Also jenkins (though not
+the X version) for CI/CD pipeline demonstrations
 
 The 3 VMS are all with Oracle Linux 7.6:
 
     1. devnode with IP 192.168.56.200. This contains the development enviroment. It will set up a user "demo".
        The generated id_rsa can be used to login to the system. This node contains kubectl, docker private
        registry with self signed SSL to hold the kubernetes images, jenkins, mongo and a git repository.
-    2. kmaster  with IP 192168.56.101. This is the kubernetes master node.
-    3. kworker1 with IP 192168.56.102. This is the kubernetes worker node.
+    2. kmaster  with IP 192.168.56.201. This is the kubernetes master node.
+    3. kworker1 with IP 192.168.56.202. This is the kubernetes worker node.
 
 Initalizing the environment
 ============================
@@ -85,10 +85,10 @@ Ports
 
 These are the open ports on devnode
 
-      **jenkins** is running on port 4000
-      **docker registry** is on port 5000
-      **mongodb** on 27017
-      **git** is accessible via ssh port 22
+      jenkins is running on port 4000
+      docker registry is on port 5000
+      mongodb on 27017
+      git is accessible via ssh port 22
 
 Next steps
 ==========
