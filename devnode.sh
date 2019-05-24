@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # Disable selinux
 setenforce 0
 sed -i '/^SELINUX.*/s//SELINUX=disabled/' /etc/selinux/config
