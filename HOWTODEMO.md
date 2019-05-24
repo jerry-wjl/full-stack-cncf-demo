@@ -80,3 +80,5 @@ Next as the demo user on devnode, create a file under ~/git/cncfdemo/hooks/post-
 Make it executable and now whenever you do a commit to the repo, a build will trigger for you. You can run the script manually or click on your job -> Build Now in the Jenkins web interface. You should get a  successful build completion.
 
 
+
+....constantly being updated
