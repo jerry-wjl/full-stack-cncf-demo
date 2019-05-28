@@ -21,7 +21,7 @@ remove all past commits and set up our repo
      cd bbc
      rm -rf .git
      git init
-     git remote add origin devnode:git/cncfdemo
+     git remote add origin demo@devnode:git/cncfdemo
 
 Set up our userid and email so we know who is interacting with the local repo. You can choose anything you like here (no emails or user
 names are leaked)
