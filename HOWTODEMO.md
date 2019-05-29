@@ -93,21 +93,21 @@ Now you can build your docker images (grafana, prometheus etc) using the gui.
 Kubernetes dasboard
 ===================
 
-To get to the kubernetes dashboard on devnode, you would need to first get the token. On devnode please run
+To get to the kubernetes dashboard on kmaster, you would need to first get the login token. On devnode please run
 
-   kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token:
+      kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token:
 
-Since the dashboard only listens on the localhost address you need to expose the port by running the following (perhaps in another console)
+Since the dashboard only listens on the localhost address on kmaster you need to expose the port to devnode by running the following
 
-   ssh -L 8001:localhost:8001 -i id_rsa root@kmaster -N &
+      ssh -L 8001:localhost:8001 -i id_rsa root@kmaster -N &
 
 Now browse to the link
 
-   http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
+      http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
 
 and use the token from above
 
-You are all set up now to do the whole demo
+**You are all set up now to do the whole demo**
 
 How to demo the app
 ===================
