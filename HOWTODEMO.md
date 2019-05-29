@@ -56,20 +56,23 @@ Now that you are in, click on
 
 Next click on the "Available" tab and then seach for Kubernetes in the "Filter" box. Check the "Kubernetes" plugin and select "Install without restart" button. Next add the "docker-build-step" plugin the same way as above.
 
-Set up docker builder URL
+Next go to main dashboard and click on "New Item" on the top left. Enter "Item Name" as "cncfdemo" and click "Pipeline" and "OK" at the bottom. You will open in a config page for this pipeline.
+Set the following fields:
 
-    "Manage Jenkins" -> "Configure System" -> "Docker Builder" -> "URL" and set it to "unix:///var/run/docker.sock" (click test connection, and the save and apply)
+
+     Description: The CNCF demo
+     Repository URL: devnode:git/cncfdemo
+     Build Triggers: Check "Trigger build remotely", and then choose a random auth token, perhaps "cncfdemotoken" but must match the value in the post-commit trigger script below
+     Pipeline -> Definintion: Choose Pipeline from SCM
+     Pipeline -> SCM (Source code management): git
+     Pipeline -> Repositories: devnode:git/cncfdemo
+     Pipeline -> Script Path: Jenkinsfile
+
 
 Next set up webhook access. 
 
      "Manage Jenkins" -> "Configure Global Security" and check "Authorization" -> "Allow anonymous read access" and apply and save
 
-then back to Jenkins dashboard and create new job. Name your job, perhaps "cncfdemo" and click "Freestyle project" and then "OK" at the bottom. Next fill in:
-
-     Description: The CNCF demo
-     Source code management: git
-     Repository URL: devnode:git/cncfdemo
-     Build Triggers: Check "Trigger build remotely", and then choose a random auth token, perhaps "cncfdemotoken"
 
 Click save. 
 Next as the demo user on devnode, create a file under ~/git/cncfdemo/hooks/post-commit with the following
@@ -79,6 +82,11 @@ Next as the demo user on devnode, create a file under ~/git/cncfdemo/hooks/post-
 
 Make it executable and now whenever you do a commit to the repo, a build will trigger for you. You can run the script manually or click on your job -> Build Now in the Jenkins web interface. You should get a  successful build completion.
 
+Optional step: Set up docker builder URL (optional for freestyle projects)
+
+    "Manage Jenkins" -> "Configure System" -> "Docker Builder" -> "URL" and set it to "unix:///var/run/docker.sock" (click test connection, and the save and apply)
+
+Now you can build your docker images (grafana, prometheus etc) using the gui.
 
 
 ....constantly being updated
