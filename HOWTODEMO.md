@@ -80,13 +80,28 @@ Next as the demo user on devnode, create a file under ~/git/cncfdemo/hooks/post-
      #!/bin/sh
      curl http://devnode:4000/job/cncfdemo/build?token=cncfdemotoken
 
-Make it executable and now whenever you do a commit to the repo, a build will trigger for you. You can run the script manually or click on your job -> Build Now in the Jenkins web interface. You should get a  successful build completion.
+Make it executable and now whenever you do a commit to the repo, a build will trigger for you. Test by using an editor of your choice and commit your change to the repo (devnode:git/cncfdemo) and a build will automatically trigger.
+
+You can run the script manually or click on your job -> Build Now in the Jenkins web interface. You should get a successful build completion.
 
 Optional step: Set up docker builder URL (optional for freestyle projects)
 
     "Manage Jenkins" -> "Configure System" -> "Docker Builder" -> "URL" and set it to "unix:///var/run/docker.sock" (click test connection, and the save and apply)
 
 Now you can build your docker images (grafana, prometheus etc) using the gui.
+
+
+
+How to demo the app
+===================
+
+Typically you can show 4 things.
+
+	  1. Populate the database with new data (will not trigger a build)
+	  2. Edit a file in git and commit it (will trigger a build and rolling upgrade)
+	  3. Scale up kubernetes deployment (edit kubernetes/cncfdemo.yml and commit which will trigger a build and rolling upgrade)
+	  4. Show metrics - i.e do some sales and show real time data getting populated.
+
 
 
 ....constantly being updated
