@@ -18,12 +18,12 @@ Vagrant.configure("2") do |config|
   config.vm.define "devnode" do |devnode|
     devnode.vm.provider "virtualbox" do |vb|
       disk = 'devnode.img'
-      vb.memory = 5120
+      vb.memory = 6144
       vb.cpus = 2
       vb.name = "devnode"
       
       unless File.exist?(disk)
-        vb.customize ['createhd', '--filename', disk, '--size', 5 * 1024]
+        vb.customize ['createhd', '--filename', disk, '--size', 10 * 1024]
       end
       vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
     end
@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "kmaster" do |kmaster|
     kmaster.vm.provider "virtualbox" do |vb|
       disk = 'kmaster.img'
-      vb.memory = 4096
+      vb.memory = 2048
       vb.cpus = 2
       vb.name = "kmaster"
       
