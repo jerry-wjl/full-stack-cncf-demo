@@ -61,7 +61,6 @@ Set the following fields:
 
 
      Description: The CNCF demo
-     Repository URL: devnode:git/cncfdemo
      Build Triggers: Check "Trigger build remotely", and then choose a random auth token, perhaps "cncfdemotoken" but must match the value in the post-commit trigger script below
      Pipeline -> Definintion: Choose Pipeline from SCM
      Pipeline -> SCM (Source code management): git
