@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
     kmaster.vm.provider "virtualbox" do |vb|
       disk = 'kmaster.img'
       vb.memory = 2048
-      vb.cpus = 2
+      vb.cpus = 1
       vb.name = "kmaster"
       
       unless File.exist?(disk)
@@ -52,6 +52,7 @@ Vagrant.configure("2") do |config|
     kmaster.vm.box = "ol76"
     kmaster.vm.hostname = "kmaster"
     kmaster.vm.network "private_network", ip: "192.168.56.201"
+    kmaster.vm.network "forwarded_port", guest: 8001, host: 8001
     kmaster.vm.provision :shell, path: "kmaster.sh"
   end
   
