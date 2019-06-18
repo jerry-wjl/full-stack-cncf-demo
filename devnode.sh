@@ -83,7 +83,9 @@ if [ -f /vagrant/ocr.txt ]; then
     
     # Pull prometheus from Oracle Container Registry Developer Repo
     docker pull container-registry.oracle.com/kubernetes_developer/prometheus:v2.9.1
+    docker tag container-registry.oracle.com/kubernetes_developer/prometheus:v2.9.1 devnode:5000/prometheus
 fi
 
 # Pull Grafan from Official Docker Hub repository
 docker pull grafana/grafana
+docker tag grafana/grafana devnode:5000/grafana
