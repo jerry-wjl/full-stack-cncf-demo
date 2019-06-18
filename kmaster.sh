@@ -16,7 +16,7 @@ systemctl restart sshd
 swapoff -a
 
 # create docker brtfs fs
-mkfs.btrfs -L var-lib-docker /dev/sdb
+mkfs.ext4 -F -L var-lib-docker /dev/sdb
 echo LABEL=var-lib-docker /var/lib/docker auto defaults 0 1 >>/etc/fstab
 mkdir /var/lib/docker
 mount /var/lib/docker
