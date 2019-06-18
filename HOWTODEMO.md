@@ -96,10 +96,6 @@ To get to the kubernetes dashboard on kmaster, you would need to first get the l
 
       kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token:
 
-Since the dashboard only listens on the localhost address on kmaster you need to expose the port to devnode by running the following
-
-      ssh -L 8001:localhost:8001 -i id_rsa root@kmaster -N &
-
 Now browse to the link
 
       http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
