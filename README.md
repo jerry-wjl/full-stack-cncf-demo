@@ -90,6 +90,28 @@ These are the open ports on devnode
       mongodb on 27017
       git is accessible via ssh port 22
 
+Docker images 
+=============
+
+These are images available in the local docker registry on devnode
+
+      coredns                    
+      etcd                       
+      flannel                    
+      grafana                    
+      k8s-dns-dnsmasq-nanny      
+      k8s-dns-kube-dns           
+      k8s-dns-sidecar            
+      kube-apiserver             
+      kube-controller-manager    
+      kube-proxy                 
+      kube-scheduler             
+      kubernetes-dashboard-amd64 
+      node                       
+      pause                      
+      prometheus                 
+      registry    
+      
 Next steps
 ==========
 
