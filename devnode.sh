@@ -13,7 +13,7 @@ printf '\nStrictHostKeyChecking no\n' >>/etc/ssh/ssh_config
 systemctl restart sshd
 
 # create docker brtfs fs
-mkfs.btrfs -L var-lib-docker /dev/sdb
+mkfs.ext4 -F -L var-lib-docker /dev/sdb
 echo LABEL=var-lib-docker /var/lib/docker auto defaults 0 1 >>/etc/fstab
 mkdir /var/lib/docker
 mount /var/lib/docker
@@ -86,6 +86,11 @@ if [ -f /vagrant/ocr.txt ]; then
     docker tag container-registry.oracle.com/kubernetes_developer/prometheus:v2.9.1 devnode:5000/prometheus
 fi
 
-# Pull Grafan from Official Docker Hub repository
+# Pull Grafana from Official Docker Hub repository
 docker pull grafana/grafana
 docker tag grafana/grafana devnode:5000/grafana
+
+# Install td-agent for fluentd logging
+yum -y install td-agent
+systemctl enable td-agent
+systemctl start td-agent
