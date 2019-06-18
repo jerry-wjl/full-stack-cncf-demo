@@ -81,3 +81,9 @@ if [ -f /vagrant/ocr.txt ]; then
     docker login -u $OCRUSER  -p $OCRPASS container-registry.oracle.com
     kubeadm-registry.sh --to devnode:5000
 fi
+
+# Pull prometheus from Oracle Container Registry Developer Repo
+docker pull container-registry.oracle.com/kubernetes_developer/prometheus:v2.9.1
+
+# Pull Grafan from Official Docker Hub repository
+docker pull grafana/grafana
