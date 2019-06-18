@@ -90,6 +90,14 @@ fi
 docker pull grafana/grafana
 docker tag grafana/grafana devnode:5000/grafana
 
+# Copy Grafana and Prometheus configuration
+cp -r /vagrant/grafana /home/demo/
+cp -r /vagrant/prometheus /home/demo/
+
+# Build Grafana and Prometheus images preconfigured for BBC app 
+docker build -t bbc-prometheus /home/demo/prometheus/
+docker build -t bbc-grafana /home/demo/grafana/
+
 # Install td-agent for fluentd logging
 yum -y install td-agent
 systemctl enable td-agent
