@@ -51,5 +51,6 @@ kubeadm-setup.sh up --apiserver-cert-extra-sans $KMASTERIP --apiserver-advertise
 scp /etc/kubernetes/admin.conf root@devnode:/home/demo/.kube/config
 ssh root@devnode chown demo:demo /home/demo/.kube/config
 
-# Accept connections from any host - USE ONLY FOR DEMO PURPOSES
+# Accept connections from any host and restart kubectl-proxy - USE ONLY FOR DEMO PURPOSES
 sed -i 's/"KUBECTL_PROXY_ARGS=.*"/"KUBECTL_PROXY_ARGS=--port 8001 --accept-hosts='.*' --address=0.0.0.0"/' /etc/systemd/system/kubectl-proxy.service.d/10-kubectl-proxy.conf
+systemctl restart kubectl-proxy
