@@ -32,6 +32,8 @@ Once installed you should start by downloading the oracle linux box
 
      $ vagrant box add --name ol76 https://yum.oracle.com/boxes/oraclelinux/ol76/ol76.box
     
+Next, sign in to Oracle Container Registry (https://container-registry.oracle.com) and accept the Oracle Standard Terms and Restrictions for both the Container Services and the Container Services (Developer) Repositories.
+
 You will need to provide a file "ocr.txt" with 2 lines to suck the kubernetes images to the local
 docker registry on the devnode. This should be in the same directory as the Vagrantfile, and the *.sh
 files from this git repo. The content of the Oracle Container Registry ocr.txt file should consist of
