@@ -30,7 +30,7 @@ systemctl start docker
 mkdir /root/.ssh
 cp /vagrant/id_rsa /root/.ssh
 cp /vagrant/id_rsa.pub /root/.ssh/authorized_keys
-chmod go-rw /root/.ssh/*
+chmod 0600 /root/.ssh/*
 
 # Make a demo user with password welcome1
 useradd demo -p "$6$/HTxL3YE$ZNXjFmj4SpgDzeR6EgxkTtDPQCCVa1aW9r0NdggyA9jlozQojKkDEvC1cWFyM1TvABppkkWh/gKhu7LJRAo8V/" -G wheel,docker
