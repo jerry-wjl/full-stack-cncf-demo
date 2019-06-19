@@ -102,3 +102,8 @@ docker build -t bbc-grafana /home/demo/grafana/
 yum -y install td-agent
 systemctl enable td-agent
 systemctl start td-agent
+
+# Haproxy
+cp /vagrant/haproxy/haproxy.cfg /etc/haproxy/
+systemctl start haproxy
+systemctl enable haproxy
