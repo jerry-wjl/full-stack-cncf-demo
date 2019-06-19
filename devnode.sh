@@ -7,10 +7,12 @@ sed -i '/^SELINUX.*/s//SELINUX=disabled/' /etc/selinux/config
 # Set up hosts file
 printf '192.168.56.200 devnode\n192.168.56.201 kmaster\n192.168.56.202 kworker1\n' >>/etc/hosts
 
-# Allow root ssh logins 
+# Allow root ssh logins
+printf 'demo ALL=(ALL) NOPASSWD: ALL' >/etc/sudoers.d/demo
 printf '\nPermitRootLogin yes\n' >> /etc/ssh/sshd_config
 printf '\nStrictHostKeyChecking no\n' >>/etc/ssh/ssh_config
 systemctl restart sshd
+
 
 # create docker brtfs fs
 mkfs.ext4 -F -L var-lib-docker /dev/sdb

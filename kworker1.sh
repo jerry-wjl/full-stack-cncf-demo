@@ -13,6 +13,9 @@ systemctl restart sshd
 
 # swap no allowed
 swapoff -a
+lvremove -f vg_main/lv_swap
+lvresize -l +100%FREE  /dev/vg_main/lv_root
+xfs_growfs /
 
 # create docker brtfs fs
 mkfs.ext4 -F -L var-lib-docker /dev/sdb

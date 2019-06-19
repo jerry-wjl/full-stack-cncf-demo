@@ -61,8 +61,8 @@ Vagrant.configure("2") do |config|
   config.vm.define "kworker1" do |kworker1|
     kworker1.vm.provider "virtualbox" do |vb|
       disk = 'kworker1.img'
-      vb.memory = 4096
-      vb.cpus = 2
+      vb.memory = 2048
+      vb.cpus = 1
       vb.name = "kworker1"
       
       unless File.exist?(disk)
