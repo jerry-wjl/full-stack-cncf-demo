@@ -19,7 +19,7 @@ mkdir /var/lib/docker
 mount /var/lib/docker
 
 yum-config-manager --enable ol7_addons ol7_latest ol7_optional_latest ol7_UEKR5
-yum -y install docker-engine docker-registry java-11-openjdk git mongodb-server kubeadm kubectl
+yum -y install docker-engine docker-registry java-11-openjdk git mongodb-server kubeadm kubectl haproxy nodejs
 yum -y upgrade
 
 # enable docker
