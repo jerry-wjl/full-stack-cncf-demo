@@ -49,3 +49,27 @@ iptables -P FORWARD ACCEPT
 TOKEN=`ssh root@kmaster "kubeadm token list"|awk 'NR==2 {print $1}'`
 HASH=`ssh root@kmaster "openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null |openssl dgst -sha256 -hex | sed 's/^.* //'"`
 kubeadm-setup.sh join --token $TOKEN $KMASTERIP:6443 --discovery-token-ca-cert-hash sha256:$HASH
+
+# Download Prometheus Node Exporter
+wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
+tar xvfz node_exporter-*.*-amd64.tar.gz
+mv node_exporter-*.*-amd64 /usr/share/node_exporter
+
+# Create Node Exporter service file
+/bin/cat > /usr/lib/systemd/system/node_exporter.service <<EOF
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/share/node_exporter/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Enable and Start Node Exporter service
+systemctl daemon-reload
+systemctl start node_exporter
+systemctl enable node_exporter
