@@ -25,7 +25,7 @@ mount /var/lib/docker
 mkdir /root/.ssh
 cp /vagrant/id_rsa /root/.ssh
 cp /vagrant/id_rsa.pub /root/.ssh/authorized_keys
-chmod go-rw /root/.ssh/*
+chmod 0600 /root/.ssh/*
 
 # install required packages 
 yum-config-manager --enable ol7_addons
