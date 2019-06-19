@@ -55,3 +55,27 @@ ssh root@devnode chown demo:demo /home/demo/.kube/config
 sed -i 's/"KUBECTL_PROXY_ARGS=.*"/"KUBECTL_PROXY_ARGS=--port 8001 --accept-hosts='.*' --address=0.0.0.0"/' /etc/systemd/system/kubectl-proxy.service.d/10-kubectl-proxy.conf
 systemctl daemon-reload
 systemctl restart kubectl-proxy
+
+# Download Prometheus Node Exporter
+wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
+tar xvfz node_exporter-*.*-amd64.tar.gz
+mv node_exporter-*.*-amd64 /usr/share/node_exporter
+
+# Create Node Exporter service file
+/bin/cat > /usr/lib/systemd/system/node_exporter.service <<EOF
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/share/node_exporter/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Enable and Start Node Exporter service
+systemctl daemon-reload
+systemctl start node_exporter
+systemctl enable node_exporter
