@@ -74,7 +74,7 @@ Next set up webhook access.
 
 
 Click save. 
-Next as the demo user on devnode, create a file under ~/git/cncfdemo/hooks/post-commit with the following
+Next as the demo user on devnode, create a file under ~/git/cncfdemo/hooks/post-receive with the following
 
      #!/bin/sh
      curl http://devnode:4000/job/cncfdemo/build?token=cncfdemotoken
