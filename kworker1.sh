@@ -54,7 +54,7 @@ HASH=`ssh root@kmaster "openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | op
 kubeadm-setup.sh join --token $TOKEN $KMASTERIP:6443 --discovery-token-ca-cert-hash sha256:$HASH
 
 # Download Prometheus Node Exporter
-wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
+wget -nv https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
 tar xvfz node_exporter-*.*-amd64.tar.gz
 mv node_exporter-*.*-amd64 /usr/share/node_exporter
 
