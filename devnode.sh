@@ -13,7 +13,6 @@ printf '\nPermitRootLogin yes\n' >> /etc/ssh/sshd_config
 printf '\nStrictHostKeyChecking no\n' >>/etc/ssh/ssh_config
 systemctl restart sshd
 
-
 # create docker brtfs fs
 mkfs.ext4 -F -L var-lib-docker /dev/sdb
 echo LABEL=var-lib-docker /var/lib/docker auto defaults 0 1 >>/etc/fstab

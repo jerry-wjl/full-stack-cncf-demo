@@ -51,6 +51,10 @@ KMASTERIP=192.168.56.201
 iptables -P FORWARD ACCEPT
 kubeadm-setup.sh up --apiserver-cert-extra-sans $KMASTERIP --apiserver-advertise-address $KMASTERIP
 
+# remove taint on the master so we can hpa
+kubectl --kubeconfig=/etc/kubernetes/admin.conf taint nodes kmaster node-role.kubernetes.io/master-
+
+#add the conf to the user demo on devnode
 scp /etc/kubernetes/admin.conf root@devnode:/home/demo/.kube/config
 ssh root@devnode chown demo:demo /home/demo/.kube/config
 
