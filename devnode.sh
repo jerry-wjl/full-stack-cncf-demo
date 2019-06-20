@@ -39,6 +39,7 @@ mkdir -p /home/demo/.ssh
 cp /vagrant/id_rsa /home/demo/.ssh/
 cp /vagrant/id_rsa.pub /home/demo/.ssh/authorized_keys
 mkdir -p /home/demo/.kube
+chmod 0600 /home/demo/.ssh/*
 
 # Jenkins
 curl -s -L http://mirrors.jenkins.io/war-stable/latest/jenkins.war >/home/demo/jenkins.war
