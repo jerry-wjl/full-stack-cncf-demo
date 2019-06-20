@@ -97,7 +97,9 @@ Docker images
 
 These are images available in the local docker registry on devnode
 
-      coredns                    
+      coredns 
+      bbc-grafana
+      bbc-prometheus
       etcd                       
       flannel                    
       grafana                    
