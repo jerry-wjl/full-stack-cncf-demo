@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "devnode" do |devnode|
     devnode.vm.provider "virtualbox" do |vb|
       disk = 'devnode.img'
-      vb.memory = 6144
+      vb.memory = 6 * 1024
       vb.cpus = 2
       vb.name = "devnode"
       
@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "kmaster" do |kmaster|
     kmaster.vm.provider "virtualbox" do |vb|
       disk = 'kmaster.img'
-      vb.memory = 2048
+      vb.memory = 2 * 1024
       vb.cpus = 1
       vb.name = "kmaster"
       
@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "kworker1" do |kworker1|
     kworker1.vm.provider "virtualbox" do |vb|
       disk = 'kworker1.img'
-      vb.memory = 2048
+      vb.memory = 2 * 1024
       vb.cpus = 1
       vb.name = "kworker1"
       
