@@ -9,11 +9,11 @@ the X version) for CI/CD pipeline demonstrations
 
 The 3 VMS are all with Oracle Linux 7.6:
 
-    1. devnode with IP 192.168.56.200. This contains the development enviroment. It will set up a user "demo".
-       The generated id_rsa can be used to login to the system. This node contains kubectl, docker private
-       registry with self signed SSL to hold the kubernetes images, jenkins, mongo and a git repository.
-    2. kmaster  with IP 192.168.56.201. This is the kubernetes master node.
-    3. kworker1 with IP 192.168.56.202. This is the kubernetes worker node.
+* **devnode** with IP 192.168.56.200. This contains the development enviroment. 
+    * It will set up a user "demo". The generated id_rsa can be used to login to the system. This node contains kubectl, docker private
+registry with self signed SSL to hold the kubernetes images, jenkins, mongo and a git repository.
+* **kmaster**  with IP 192.168.56.201. This is the kubernetes master node.
+* **kworker1** with IP 192.168.56.202. This is the kubernetes worker node.
 
 Initalizing the environment
 ============================
@@ -24,18 +24,18 @@ Starting by installing the virtualbox and vagrant for your environment.
 
 Your OS may already have this as packaged product, else you may install it from
 
-     https://www.virtualbox.org/wiki/Downloads
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-     https://www.vagrantup.com/downloads.html
+* [Vagrant](https://www.vagrantup.com/downloads.html)
 
 Once installed you should start by downloading the oracle linux box 
 
      $ vagrant box add --name ol76 https://yum.oracle.com/boxes/oraclelinux/ol76/ol76.box
     
-Next, sign in to Oracle Container Registry (https://container-registry.oracle.com) and accept the Oracle Standard Terms and Restrictions for both the Container Services and the Container Services (Developer) Repositories.
+Next, sign in to [Oracle Container Registry](https://container-registry.oracle.com) and accept the Oracle Standard Terms and Restrictions for *both* the **Container Services** and the **Container Services (Developer) Repositories**.
 
 You will need to provide a file "ocr.txt" with 2 lines to suck the kubernetes images to the local
-docker registry on the devnode. This should be in the same directory as the Vagrantfile, and the *.sh
+docker registry on the devnode. This should be in the same directory as the Vagrantfile, and the * .sh
 files from this git repo. The content of the Oracle Container Registry ocr.txt file should consist of
 2 lines
 
