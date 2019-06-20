@@ -73,9 +73,6 @@ chmod +x /home/demo/registry.sh
 # Pull node
 docker pull node
 
-# Fix ownership because we did everything as root
-chown -R demo:demo /home/demo
-
 # Finally pull container registry images
 
 if [ -f /vagrant/ocr.txt ]; then
@@ -133,3 +130,6 @@ EOF
 systemctl daemon-reload
 systemctl start node_exporter
 systemctl enable node_exporter
+
+# Fix ownership because we did everything as root --- THIS SHOULD BE THE LAST STEP
+chown -R demo:demo /home/demo
