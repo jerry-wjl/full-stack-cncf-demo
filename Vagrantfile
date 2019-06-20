@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
       vb.name = "devnode"
       
       unless File.exist?(disk)
-        vb.customize ['createhd', '--filename', disk, '--size', 10 * 1024]
+        vb.customize ['createmedium', 'disk', '--filename', disk, '--format', 'vmdk', '--size', 10 * 1024]
       end
       vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
     end
@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
       vb.name = "kmaster"
       
       unless File.exist?(disk)
-        vb.customize ['createhd', '--filename', disk, '--size', 5 * 1024]
+        vb.customize ['createmedium', 'disk', '--filename', disk, '--format', 'vmdk', '--size', 5 * 1024]
       end
       vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
     end
@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
       vb.name = "kworker1"
       
       unless File.exist?(disk)
-        vb.customize ['createhd', '--filename', disk, '--size', 5 * 1024]
+        vb.customize ['createmedium', 'disk', '--filename', disk, '--format', 'vmdk', '--size', 5 * 1024]
       end
       vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
     end
