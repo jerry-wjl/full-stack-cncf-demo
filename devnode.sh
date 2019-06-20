@@ -65,7 +65,7 @@ cp domain.crt /etc/docker/certs.d/devnode:5000/ca.crt
 cp domain.crt /etc/docker/certs.d/devnode:5000/client.crt
 cp domain.key /etc/docker/certs.d/devnode:5000/client.key
 
-printf '#!/bin/sh\ndocker run -itd -p :5000:5000 -v `pwd`:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt  -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key --restart always registry
+printf '#!/bin/sh\ndocker run --name registry -itd -p :5000:5000 -v `pwd`:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt  -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key --restart always registry
 ' >/home/demo/registry.sh
 chmod +x /home/demo/registry.sh
 /home/demo/registry.sh
