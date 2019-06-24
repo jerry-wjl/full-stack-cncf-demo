@@ -104,6 +104,24 @@ and use the token from above
 
 **You are all set up now to do the whole demo**
 
+Autoscaling (a.k.a HPA - Horizontal Pod Autoscaling)
+====================================================
+
+The metrics server has been added to kubernetes cluster and you can display your node metrics running the following on devnode
+
+    $ kubectl descibe no
+
+and look at the **Allocated resources:** section. Assuming your deployment has been deployed using Jenkins or manually you should be able
+to now autoscale using
+
+    $ kubectl autoscale deploy cncfdemo --min=1 --max=5
+
+Check with
+
+    $ kubectl get hpa
+
+Run some load and you will see the pods counts go up and even kick off on the master node which is untainted.
+
 How to demo the app
 ===================
 
@@ -113,7 +131,6 @@ Typically you can show 4 things.
 	  2. Edit a file in git and commit it (will trigger a build and rolling upgrade)
 	  3. Scale up kubernetes deployment (edit kubernetes/cncfdemo.yml and commit which will trigger a build and rolling upgrade)
 	  4. Show metrics - i.e do some sales and show real time data getting populated.
-
-
+	  5. Generate some load and see the autoscaling trigger
 
 ....constantly being updated
