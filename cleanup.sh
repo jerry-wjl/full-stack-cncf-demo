@@ -8,7 +8,7 @@ fi
 DISK=`vboxmanage list hdds|grep $1|sed s/Location://`
 
 if [ "$DISK" ]; then
-    vboxmanage closemedium $DISK --delete
-    rmdir `dirname $DISK`
+    vboxmanage closemedium "$DISK" --delete
+    rmdir `dirname "$DISK"`
 fi
 
