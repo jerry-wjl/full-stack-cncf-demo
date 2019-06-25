@@ -53,7 +53,7 @@ Next set up webhook access.
 
 Click `save`.
 
-Next as the `demo` user on devnode,
+Next, login as the `demo` user on devnode (if you haven't already)
 
 `ssh -i id_rsa demo@devenode`
 
