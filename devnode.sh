@@ -7,7 +7,8 @@ sed -i '/^SELINUX.*/s//SELINUX=disabled/' /etc/selinux/config
 # Set up hosts file
 printf '192.168.56.200 devnode\n192.168.56.201 kmaster\n192.168.56.202 kworker1\n' >>/etc/hosts
 
-# Allow root ssh logins 
+# Allow root ssh logins
+printf 'demo ALL=(ALL) NOPASSWD: ALL' >/etc/sudoers.d/demo
 printf '\nPermitRootLogin yes\n' >> /etc/ssh/sshd_config
 printf '\nStrictHostKeyChecking no\n' >>/etc/ssh/ssh_config
 systemctl restart sshd
@@ -30,7 +31,7 @@ systemctl start docker
 mkdir /root/.ssh
 cp /vagrant/id_rsa /root/.ssh
 cp /vagrant/id_rsa.pub /root/.ssh/authorized_keys
-chmod go-rw /root/.ssh/*
+chmod 0600 /root/.ssh/*
 
 # Make a demo user with password welcome1
 useradd demo -p "$6$/HTxL3YE$ZNXjFmj4SpgDzeR6EgxkTtDPQCCVa1aW9r0NdggyA9jlozQojKkDEvC1cWFyM1TvABppkkWh/gKhu7LJRAo8V/" -G wheel,docker
@@ -38,6 +39,7 @@ mkdir -p /home/demo/.ssh
 cp /vagrant/id_rsa /home/demo/.ssh/
 cp /vagrant/id_rsa.pub /home/demo/.ssh/authorized_keys
 mkdir -p /home/demo/.kube
+chmod 0600 /home/demo/.ssh/*
 
 # Jenkins
 curl -s -L http://mirrors.jenkins.io/war-stable/latest/jenkins.war >/home/demo/jenkins.war
@@ -63,16 +65,13 @@ cp domain.crt /etc/docker/certs.d/devnode:5000/ca.crt
 cp domain.crt /etc/docker/certs.d/devnode:5000/client.crt
 cp domain.key /etc/docker/certs.d/devnode:5000/client.key
 
-printf '#!/bin/sh\ndocker run -itd -p :5000:5000 -v `pwd`:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt  -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key --restart always registry
+printf '#!/bin/sh\ndocker run --name registry -itd -p :5000:5000 -v `pwd`:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt  -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key --restart always registry
 ' >/home/demo/registry.sh
 chmod +x /home/demo/registry.sh
 /home/demo/registry.sh
 
 # Pull node
 docker pull node
-
-# Fix ownership because we did everything as root
-chown -R demo:demo /home/demo
 
 # Finally pull container registry images
 
@@ -107,3 +106,30 @@ systemctl start td-agent
 cp /vagrant/haproxy/haproxy.cfg /etc/haproxy/
 systemctl start haproxy
 systemctl enable haproxy
+
+# Download Prometheus Node Exporter
+wget -nv https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
+tar xvfz node_exporter-*.*-amd64.tar.gz
+mv node_exporter-*.*-amd64 /usr/share/node_exporter
+
+# Create Node Exporter service file
+/bin/cat > /usr/lib/systemd/system/node_exporter.service <<EOF
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/share/node_exporter/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Enable and Start Node Exporter service
+systemctl daemon-reload
+systemctl start node_exporter
+systemctl enable node_exporter
+
+# Fix ownership because we did everything as root --- THIS SHOULD BE THE LAST STEP
+chown -R demo:demo /home/demo

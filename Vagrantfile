@@ -18,12 +18,12 @@ Vagrant.configure("2") do |config|
   config.vm.define "devnode" do |devnode|
     devnode.vm.provider "virtualbox" do |vb|
       disk = 'devnode.img'
-      vb.memory = 6144
+      vb.memory = 6 * 1024
       vb.cpus = 2
       vb.name = "devnode"
       
       unless File.exist?(disk)
-        vb.customize ['createhd', '--filename', disk, '--size', 10 * 1024]
+        vb.customize ['createmedium', 'disk', '--filename', disk, '--format', 'vmdk', '--size', 10 * 1024]
       end
       vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
     end
@@ -39,12 +39,12 @@ Vagrant.configure("2") do |config|
   config.vm.define "kmaster" do |kmaster|
     kmaster.vm.provider "virtualbox" do |vb|
       disk = 'kmaster.img'
-      vb.memory = 2048
+      vb.memory = 2 * 1024
       vb.cpus = 1
       vb.name = "kmaster"
       
       unless File.exist?(disk)
-        vb.customize ['createhd', '--filename', disk, '--size', 5 * 1024]
+        vb.customize ['createmedium', 'disk', '--filename', disk, '--format', 'vmdk', '--size', 5 * 1024]
       end
       vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
     end
@@ -61,12 +61,12 @@ Vagrant.configure("2") do |config|
   config.vm.define "kworker1" do |kworker1|
     kworker1.vm.provider "virtualbox" do |vb|
       disk = 'kworker1.img'
-      vb.memory = 4096
-      vb.cpus = 2
+      vb.memory = 2 * 1024
+      vb.cpus = 1
       vb.name = "kworker1"
       
       unless File.exist?(disk)
-        vb.customize ['createhd', '--filename', disk, '--size', 5 * 1024]
+        vb.customize ['createmedium', 'disk', '--filename', disk, '--format', 'vmdk', '--size', 5 * 1024]
       end
       vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
     end

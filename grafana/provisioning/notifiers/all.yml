@@ -1,0 +1,15 @@
+notifiers:
+  - name: BBC-Slack-Notify
+    type: slack
+    uid: notifier1
+    org_id: 1
+    is_default: true
+    send_reminder: true
+    frequency: 1h
+    disable_resolve_message: true
+    # See `Supported Settings` section for settings supporter for each
+    # alert notification type.
+    settings:
+      url: https://replace_with_real_webook_url/
+      recipient: "#bbc_notifications"
+      username: "Billionaire Buyers Club"
