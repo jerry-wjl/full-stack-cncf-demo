@@ -17,7 +17,7 @@ lvremove -f vg_main/lv_swap
 lvresize -l +100%FREE  /dev/vg_main/lv_root
 xfs_growfs /
 
-# create docker brtfs fs
+# create docker fs
 mkfs.ext4 -F -L var-lib-docker /dev/sdb
 echo LABEL=var-lib-docker /var/lib/docker auto defaults 0 1 >>/etc/fstab
 mkdir /var/lib/docker
@@ -31,7 +31,7 @@ chmod 0600 /root/.ssh/*
 
 # install required packages
 yum-config-manager --enable ol7_addons
-yum -y install docker-engine kubeadm ntp
+yum -y install docker-engine kubeadm ntp nfs-utils
 yum -y upgrade
 
 # start ntp so that all k8s node certificates are in sync
