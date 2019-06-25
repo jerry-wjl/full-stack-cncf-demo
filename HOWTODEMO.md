@@ -51,8 +51,13 @@ Next set up webhook access.
 `"Manage Jenkins" -> "Configure Global Security" and check "Authorization" -> "Allow anonymous read access"` and apply and save
 
 
-Click `save`. 
-Next as the demo user on devnode, create a file under `~/git/cncfdemo/hooks/post-receive` with the following
+Click `save`.
+
+Next as the `demo` user on devnode,
+
+`ssh -i id_rsa demo@devenode`
+
+create a file under `~/git/cncfdemo/hooks/post-receive` with the following:
 
 ```
 #!/bin/sh
