@@ -18,7 +18,9 @@ registry with self signed SSL to hold the kubernetes images, jenkins, mongo and 
 Initalizing the environment
 ============================
 
-If you've already pulled this repo on your local machine, you're good to go.
+If you've already pulled this repo on your local machine, you're good to go. If not, clone the repo as follows.
+
+`git clone https://github.com/olsc-devops/full-stack-cncf-demo.git`
 
 Starting by installing the virtualbox and vagrant for your environment.
 
