@@ -129,5 +129,4 @@ Next steps
 ==========
 
 The next steps will show you how to build a shopping app and do a demo pusing it to the local repo on devnode
-and then building a pipeline and deploying to kubernetes. Click [here](HOWTODEMO.md) to learn how to run a sample
-app in a jenkins pipeline using all the components in this build.
+and then building a pipeline and deploying to kubernetes. Start by clicking [here](CONFIGDEMO.md) to learn how to set up the demo environment.
