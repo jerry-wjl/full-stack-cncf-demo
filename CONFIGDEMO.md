@@ -61,7 +61,7 @@ Next click on the **Available** tab and then seach for **_Kubernetes_** in the *
 
 <img src="img/010-jenkins.png" alt="kubernetes-jenkins-plugin" width="500" height="500">
 
-Next add the **docker-build-step** plugin the same way as above.
+Next add the **_docker-build-step_** plugin the same way as above.
 
 <img src="img/011-jenkins.png" alt="docker build step" width="720px" height="137px">
 
@@ -110,48 +110,17 @@ and **Apply and Save**
 
 Next, login as the `demo` user on devnode (if you haven't already)
 
-`ssh -i id_rsa demo@devenode`
+<img src="img/021a-jenkins.png" alt="devnode login" width="990px" height="393px">
 
-create a file under `~/git/cncfdemo/hooks/post-receive` with the following:
-
-```
-#!/bin/sh
-curl http://devnode:4000/job/cncfdemo/build?token=cncfdemotoken
-```
+Create a file under `~/git/cncfdemo/hooks/post-receive` with the following:
 
 Make it _**executable**_ and now whenever you do a commit to the repo, a build will trigger for you. Test by using an editor of your choice and commit your change to the repo (devnode:git/cncfdemo) and a build will automatically trigger.
 
+<img src="img/021-jenkins.png" alt="post-receive" width="493px" width="105px">
+
+<img src="img/022-jenkins.png" align="post-receive 2" width="713px" width="62px">
+
 **NOTE:** You can run the script manually or click on your _job -> Build Now_ in the Jenkins web interface. You should get a successful build completion.
-
-Running the First Build
------------------------
-
-On your host machine,
-
-Pull the bbc app in your home dir
-
-`git clone https://github.com/olsc-devops/bbc`
-
-Since we will be running this repo as a local disconnected demo we need to switch from the remote to the git repo on devnode. So we
-remove all past commits and set up our repo
-
-     cd bbc
-     rm -rf .git
-     git init
-     git remote add origin demo@devnode:git/cncfdemo
-
-Set up our userid and email so we know who is interacting with the local repo. You can choose anything you like here (no emails or user
-names are leaked)
-
-    git config --global user.email "demo@oracle.com"
-    git config --global user.name "CNCF Demo"
-
-Now add a .gitignore and push everything else to our local repo
-
-    printf 'README.md\nnode_modules\npackage-lock.json\n.gitignore' >.gitignore
-    git add .
-    git commit -a -m 'Initial commit'
-    git push -u origin master
 
 Optional step: Set up docker builder URL (optional for freestyle projects)
 --------------------------------------------------------------------------
