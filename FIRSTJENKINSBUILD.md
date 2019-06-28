@@ -1,9 +1,11 @@
 Running the First Build
 -----------------------
 
-On your host machine,
+Login as `demo` to the `devnode`
 
-Pull the bbc app in your home dir
+<img src="img/021a-jenkins.png" alt="ssh login as demo" width="990px" height="393px">
+
+Clone the bbc app in your home dir
 
 `git clone https://github.com/olsc-devops/bbc`
 
