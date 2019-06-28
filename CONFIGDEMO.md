@@ -21,11 +21,11 @@ You will probably have missed the password messages when building the vagrant in
 
 `/home/demo/.jenkins/secrets/initialAdminPassword`
 
-Go to the URL on devnode http://devnode:4000 and enter that.
+Go to the URL on devnode http://devnode:4000 and enter in the **Administrator Password** box. Then click **Continue**
 
 <img src="img/001-jenkins.png" alt="Initial Jenkins login" width="500" height="500">
 
-Next click on "_Install Suggested Plugins_"
+Next click on **Install Suggested Plugins**
 
 <img src="img/002-jenkins.png" alt="Install Suggested Plugins" width="500" height="500">
 
@@ -33,19 +33,19 @@ Next click on "_Install Suggested Plugins_"
 
 <img src="img/003-jenkins.png" alt="waiting and waiting" width="500" height="500">
 
-You will end up at "_Create First Admin User_" page. Fill out the information and click "Save and Continue"
+You will end up at **Create First Admin User** page. Fill out the information and click **Save and Continue**
 
 <img src="img/004-jenkins.png" alt="first admin" width="500" height="500">
 
-Once completed, you should end up at "_Instance Configuration_". Ensure you don't have `localhost` as the hostname, but a proper hostname. Hopefully you would have taken heed at the begining of this document and added the host `devnode` in your hosts file and/or dns so you can get to this machine by name. Click "_Save and Finish_"
+Once completed, you should end up at **Instance Configuration**. Ensure you don't have `localhost` as the hostname, but a proper hostname. Hopefully you would have taken heed at the begining of this document and added the host `devnode` in your hosts file and/or dns so you can get to this machine by name. Click **Save and Finish**
 
 <img src="img/005-jenkins.png" alt="instance config" width="500" height="500">
 
-Next click "_Stat using Jenkins_"
+Next click **Start using Jenkins**
 
 <img src="img/006-jenkins.png" alt="start using jenkins" width="500" height="500">
 
-Now that you are in, click on "Manage Jenkins" -> "Manage Plugins" -> "Check Now"
+Now that you are in, click on **Manage Jenkins -> Manage Plugins -> Check Now**
 
 <img src="img/007-jenkins.png" alt="check now" width="500" height="500">
 
@@ -53,7 +53,7 @@ and wait to complete
 
 <img src="img/008-jenkins.png" alt="waiting">
 
-Next click on the "_Available_" tab and then seach for Kubernetes in the "Filter" box. Check the "_Kubernetes_" plugin and select "_Install without restart_" button. 
+Next click on the **Available** tab and then seach for **_Kubernetes_** in the **Filter** box. Check the **Kubernetes** plugin and select **Install without restart** button. 
 
 <img src="img/009-jenkins.png" alt="kubernetes" width="800" height="500">
 
@@ -61,7 +61,7 @@ Next click on the "_Available_" tab and then seach for Kubernetes in the "Filter
 
 <img src="img/010-jenkins.png" alt="kubernetes-jenkins-plugin" width="500" height="500">
 
-Next add the "_docker-build-step_" plugin the same way as above.
+Next add the **docker-build-step** plugin the same way as above.
 
 <img src="img/011-jenkins.png" alt="docker build step" width="720px" height="137px">
 
@@ -69,11 +69,11 @@ Next add the "_docker-build-step_" plugin the same way as above.
 
 <img src="img/012-jenkins.png" alt="docker build step completed" width="500" height="500">
 
-Next go to main dashboard and click on "_New Item_" on the top left. 
+Next go to main dashboard and click on **New Item** on the top left. 
 
 <img src="img/013-jenkins.png" alt="new item" width="693px" height="555px">
 
-Enter "_Item Name_" as `cncfdemo` and click "_Pipeline_" and "_OK_" at the bottom. You will open in a config page for this pipeline.
+Enter **Item Name** as `cncfdemo` and click **Pipeline** and **OK** at the bottom. You will open in a config page for this pipeline.
 
 <img src="img/014-jenkins.png" alt="pipeline" width="811px" height="398px">
 
@@ -81,7 +81,7 @@ Set the following fields:
 
 * Description: **The CNCF demo**
 * Build Triggers:
-  * Check **Trigger build remotely**, and then choose a random auth token, perhaps "_**cncfdemotoken**_" but must match the value in the post-commit trigger script below
+  * Check **Trigger build remotely**, and then choose a random auth token, perhaps **"cncfdemotoken"** but must match the value in the post-commit trigger script below
 
 <img src="img/015-jenkins.png" alt="item config" width="810px" height="503px">
 
@@ -96,13 +96,17 @@ Set the following fields:
 * Pipeline -> Repositories: **devnode:git/cncfdemo**
 * Pipeline -> Script Path: **Jenkinsfile**
 
-<img src="img/018-jenkins.png" align="set repo" width="808px" height="533">
+<img src="img/018-jenkins.png" alt="set repo" width="808px" height="533">
 
 Next set up webhook access. 
 
-`"Manage Jenkins" -> "Configure Global Security" and check "Authorization" -> "Allow anonymous read access"` and apply and save
+**Manage Jenkins -> Configure Global Security** and check **Authorization -> "Allow anonymous read access**
 
-Click `save`.
+<img src="img/019-jenkins.png" alt="global security" width="705px" height="715px">
+
+and **Apply and Save**
+
+<img src="img/020-jenkins.png" alt="apply save" width="1080px" height="529px">
 
 Next, login as the `demo` user on devnode (if you haven't already)
 
