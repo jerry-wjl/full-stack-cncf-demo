@@ -63,15 +63,16 @@ Once completed, on your local host (not vm), you should be able to go to the URL
 
 [http://devnode:4000](http://devnode:4000)
 
-and you should get the Jenkins welcome screen. We cover how to configure Jenkins in detail later. For now, you can just confirm that Jenkins was deployed by visiting the URL above.
+and you should get the Jenkins welcome screen. Don't bother attempting to login and configure Jenkins yet, we will cover how to configure Jenkins in detail later. For now, you can just confirm that Jenkins was deployed by visiting the URL above.
 
 Next, login to the `devnode` as user `demo` as follows
     
-     $ ssh demo@devnode -i id_rsa
+ <img src="img/021a-jenkins.png" alt="devnode login" width="990px" height="393px">
 
-Check the status of the kubernetes cluster from the devnode (after you have logged in above) using
+ Check the status of the kubernetes cluster from the devnode (after you have logged in above) using
 
-     $ kubectl get nodes
+<img src="img/001-PostInitChecks.png" alt="kubectl get nodes" width="584px" height="113px">
+ 
 
 Rebuilding the Environment
 --------------------------
