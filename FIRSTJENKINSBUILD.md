@@ -9,13 +9,16 @@ Clone the bbc app in your home dir
 
 `git clone https://github.com/olsc-devops/bbc`
 
-Since we will be running this repo as a local disconnected demo we need to switch from the remote to the git repo on devnode. So we
-remove all past commits and set up our repo
+<img src="img/git_clone_bbc_devnode.png" alt="git clone bbc" width="751px" height="211px">
+
+Next we will add the bbc repository to the git repo on devnode. First, we remove all past commits and set up our repo.
 
      cd bbc
      rm -rf .git
      git init
      git remote add origin demo@devnode:git/cncfdemo
+
+<img src="img/001-firstjenksbld.png" alt="clean repo for local import" width="814px" height="224px"> 
 
 Set up our userid and email so we know who is interacting with the local repo. You can choose anything you like here (no emails or user
 names are leaked)
