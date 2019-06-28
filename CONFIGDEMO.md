@@ -120,7 +120,7 @@ Make it _**executable**_ and now whenever you do a commit to the repo, a build w
 
 <img src="img/022-jenkins.png" align="post-receive 2" width="713px" width="62px">
 
-**NOTE:** We will walk through the first demo application build later. You can jump ahead to start to those steps in the [First Jenkins Build](FIRSTJENKINSBULD.md)
+**NOTE:** We will walk through the first demo application build later. You can jump ahead to start to those steps in the [First Jenkins Build](FIRSTJENKINSBUILD.md)
 
 Optional step: Set up docker builder URL (optional for freestyle projects)
 --------------------------------------------------------------------------
