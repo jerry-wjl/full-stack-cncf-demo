@@ -21,7 +21,11 @@ You will probably have missed the password messages when building the vagrant in
 
 `/home/demo/.jenkins/secrets/initialAdminPassword`
 
-So just go to the URL on devnode http://devnode:4000 and enter that. Click on "_Install Suggested Plugins_" and wait
+Go to the URL on devnode http://devnode:4000 and enter that.
+
+<img src="img/001-jenkins.png">
+
+Click on "_Install Suggested Plugins_" and wait
 a while. You will end up at "_Create First Admin User_" page. Finish filling that in and you should end up at "_Instance Configuration_".
 Ensure you don't have `localhost` as the hostname, but a proper hostname. Hopefully you would have taken heed at the begining of this
 document and added the host `devnode` in your hosts file and/or dns so you can get to this machine by name. Click "_Finish_" and you should
@@ -47,7 +51,6 @@ Set the following fields:
 Next set up webhook access. 
 
 `"Manage Jenkins" -> "Configure Global Security" and check "Authorization" -> "Allow anonymous read access"` and apply and save
-
 
 Click `save`.
 
