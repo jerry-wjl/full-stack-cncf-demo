@@ -63,7 +63,7 @@ Next click on the "_Available_" tab and then seach for Kubernetes in the "Filter
 
 Next add the "_docker-build-step_" plugin the same way as above.
 
-<img src="img/011-jenkins.png" alt="docker build step" width="800" height="500">
+<img src="img/011-jenkins.png" alt="docker build step" width="900" height="400">
 
 ...and wait for it to complete
 
