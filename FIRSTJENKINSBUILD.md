@@ -25,6 +25,9 @@ names are leaked)
 
     git config --global user.email "demo@oracle.com"
     git config --global user.name "CNCF Demo"
+    git config --list
+
+<img src="img/003-firstjenksbld.png" alt="git config" width="925px" height="300px">
 
 Now add a .gitignore and push everything else to our local repo
 
@@ -32,3 +35,9 @@ Now add a .gitignore and push everything else to our local repo
     git add .
     git commit -a -m 'Initial commit'
     git push -u origin master
+
+<img src="img/004-firstjenkinsbld.png" alt=".gitignore" width="1152px" height="84px">
+
+<img src="img/005-firstjenksbld.png" alt="git commit" width="877px" height="938px">
+
+<img src="img/006-firstjenksbld.png" alt="git push" width="763px" height="253px">
