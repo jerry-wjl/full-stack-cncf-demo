@@ -23,7 +23,7 @@ You will probably have missed the password messages when building the vagrant in
 
 Go to the URL on devnode http://devnode:4000 and enter that.
 
-<img src="img/001-jenkins.png" alt="Initial Jenkins login" width="500" height="500">
+<img src="img/001-jenkins.png" alt="Initial Jenkins login" align="middle" width="500" height="500">
 
 Click on "_Install Suggested Plugins_" and wait
 a while. You will end up at "_Create First Admin User_" page. Finish filling that in and you should end up at "_Instance Configuration_".
