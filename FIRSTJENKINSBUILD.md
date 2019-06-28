@@ -36,7 +36,7 @@ Now add a .gitignore and push everything else to our local repo
     git commit -a -m 'Initial commit'
     git push -u origin master
 
-<img src="img/004-firstjenkinsbld.png" alt=".gitignore" width="1152px" height="84px">
+<img src="img/004-firstjenksbld.png" alt=".gitignore" width="1152px" height="84px">
 
 <img src="img/005-firstjenksbld.png" alt="git commit" width="877px" height="938px">
 
