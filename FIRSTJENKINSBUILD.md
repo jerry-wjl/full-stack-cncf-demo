@@ -18,7 +18,7 @@ Next we will add the bbc repository to the git repo on devnode. First, we remove
      git init
      git remote add origin demo@devnode:git/cncfdemo
 
-<img src="img/001-firstjenksbld.png" alt="clean repo for local import" width="814px" height="224px"> 
+<img src="img/002-firstjenksbld.png" alt="clean repo for local import" width="817px" height="156px"> 
 
 Set up our userid and email so we know who is interacting with the local repo. You can choose anything you like here (no emails or user
 names are leaked)
