@@ -55,7 +55,7 @@ and wait to complete
 
 Next click on the "_Available_" tab and then seach for Kubernetes in the "Filter" box. Check the "_Kubernetes_" plugin and select "_Install without restart_" button. 
 
-<img src="img/009-jenkins.png" alt="kubernetes" width="500" height="500">
+<img src="img/009-jenkins.png" alt="kubernetes" width="500" height="800">
 
 ...and wait for it to complete
 
