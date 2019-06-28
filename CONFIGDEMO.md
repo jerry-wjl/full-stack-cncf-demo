@@ -55,15 +55,15 @@ and wait to complete
 
 Next click on the "_Available_" tab and then seach for Kubernetes in the "Filter" box. Check the "_Kubernetes_" plugin and select "_Install without restart_" button. 
 
-<img src="img/009-jenkins.png" alt="kubernetes" width="500" height="800">
+<img src="img/009-jenkins.png" alt="kubernetes" width="800" height="500">
 
 ...and wait for it to complete
 
-<img src="img/010-jenkins" alt="k8s plugin" width="500" height="500">
+<img src="img/010-jenkins" alt="kubernetes-jenkins-plugin" width="500" height="500">
 
 Next add the "_docker-build-step_" plugin the same way as above.
 
-<img src="img/011-jenkins.png" alt="docker build step" width="500" height="500">
+<img src="img/011-jenkins.png" alt="docker build step" width="800" height="500">
 
 ...and wait for it to complete
 
