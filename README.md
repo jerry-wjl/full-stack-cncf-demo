@@ -22,9 +22,9 @@ If you've already pulled this repo on your local machine, you're good to go. If 
 
 `git clone https://github.com/olsc-devops/full-stack-cncf-demo.git`
 
-Starting by installing the virtualbox and vagrant for your environment.
+Starting by installing Virtualbox and Vagrant for your platform.
 
-Your OS may already have this as packaged product, else you may install it from
+Your OS may already have this as packaged product, otherwise you may install it from
 
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
