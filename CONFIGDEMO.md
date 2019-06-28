@@ -45,9 +45,13 @@ Next click "_Stat using Jenkins_"
 
 <img src="img/006-jenkins.png" alt="start using jenkins" width="500" height="500">
 
-Now that you are in, click on
+Now that you are in, click on "Manage Jenkins" -> "Manage Plugins" -> "Check Now"
 
- `"Manage Jenkins" -> "Manage Plugins" -> "Check Now"` and wait to complete
+<img src="img/007-jenkins.png" alt="check now" width="500" height="500">
+
+and wait to complete
+
+<img src="img/008-jenkins.png" alt="waiting">
 
 Next click on the "_Available_" tab and then seach for Kubernetes in the "Filter" box. Check the "_Kubernetes_" plugin and select "_Install without restart_" button. Next add the "_docker-build-step_" plugin the same way as above.
 
