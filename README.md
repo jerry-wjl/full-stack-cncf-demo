@@ -59,7 +59,7 @@ add the host ip/name combination to your local host file for demo purposes. So a
 Post Initialization Checks
 --------------------------
 
-Once completed, on your local host (not vm) you should be able to go to the URL where jenkins is running
+Once completed, on your local host (not vm), you should be able to go to the URL where Jenkins is running
 
      http://devnode:4000
 
