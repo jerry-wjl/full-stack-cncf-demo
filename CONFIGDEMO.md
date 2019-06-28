@@ -114,13 +114,13 @@ Next, login as the `demo` user on devnode (if you haven't already)
 
 Create a file under `~/git/cncfdemo/hooks/post-receive` with the following:
 
-Make it _**executable**_ and now whenever you do a commit to the repo, a build will trigger for you. Test by using an editor of your choice and commit your change to the repo (devnode:git/cncfdemo) and a build will automatically trigger.
+Make it _**executable**_ and now whenever you do a commit to the repo, a build will trigger for you.
 
 <img src="img/021-jenkins.png" alt="post-receive" width="493px" width="105px">
 
 <img src="img/022-jenkins.png" align="post-receive 2" width="713px" width="62px">
 
-**NOTE:** You can run the script manually or click on your _job -> Build Now_ in the Jenkins web interface. You should get a successful build completion.
+**NOTE:** We will walk through the first demo application build later. You can jump ahead to start to those steps in the [First Jenkins Build](FIRSTJENKINSBULD.md)
 
 Optional step: Set up docker builder URL (optional for freestyle projects)
 --------------------------------------------------------------------------
