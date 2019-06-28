@@ -1,5 +1,5 @@
-Running the demo
-================
+Configuring the Demo Environment
+================================
 
 ## Assumptions
 
