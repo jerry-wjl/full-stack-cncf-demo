@@ -37,14 +37,12 @@ Once installed you should start by downloading the oracle linux box
 Next, sign in to [Oracle Container Registry](https://container-registry.oracle.com) and accept the Oracle Standard Terms and Restrictions for *both* the **Container Services** and the **Container Services (Developer) Repositories**.
 
 You will need to provide a file "ocr.txt" with 2 lines to suck the kubernetes images to the local
-docker registry on the devnode. This should be in the same directory as the Vagrantfile, and the * .sh
-files from this git repo. The content of the Oracle Container Registry ocr.txt file should consist of
-2 lines
+docker registry on the devnode. This should be in the `full-stack-cncf-demo` directory. The content of the Oracle Container Registry ocr.txt file should consist of 2 lines
 
        OCRUSER=xxxxx@oracle.com
        OCRPASS=yyyyyy
 
-Now download the Vagrant file in the git repo and start it
+Next and start the environment as follows
 
      $ vagrant up
 
@@ -52,18 +50,22 @@ Ensure you remove the ocr.txt file immediately after you see the kmaster build m
 the devnode VM has completed pulling all the nodes from the OCR)
 
 After some time you should now have a full development environment ready to use. It is suggested you
-add the host ip/name combination to your local host file for demo purposes. So add
+add the host ip/name combination to your local host file for demo purposes. So add the following to your local hosts file.
 
     192.168.56.200 devnode
     192.168.56.201 kmaster
     192.168.56.202 kworker1
+   
+Post Initialization Checks
+--------------------------
 
-to your /etc/hosts file. Once done, on your local host (not vm) you should be able to go to the URL
-where jenkins is running
+Once completed, on your local host (not vm) you should be able to go to the URL where jenkins is running
 
      http://devnode:4000
 
-and you should get the jenkins welcome screen. You can login passwordless to the devnode as user demo using
+and you should get the Jenkins welcome screen. We cover how to configure Jenkins in detail later. For now, you can just confirm that Jenkins was deployed by visiting the URL above.
+
+You can login passwordless to the devnode as user demo using
     
      $ ssh demo@devnode -i id_rsa
 
@@ -71,11 +73,14 @@ You can check the status of the kubernetes cluster from the devnode (after you h
 
      $ kubectl get nodes
 
+Rebuilding the Environment
+--------------------------
+
 To destroy all the nodes
 
      $ vagrant destroy -f
 
-However i suggest not doing that due to the length of time required to rebuild and pull images from OCR to the
+However it is not suggested to do this due to the length of time required to rebuild and pull images from OCR to the
 devnode. If you ever need to rebuild the kubenetes cluster you can just
 
      $ vagrant destroy -f kmaster kworker1
@@ -83,6 +88,8 @@ devnode. If you ever need to rebuild the kubenetes cluster you can just
 
 Which should build a clean kubernetes cluster in a few minutes since it will pull from the docker registry on devnode.
 You can quickly demo how easy it is to build a kubernetes cluster to a customer.
+
+For a more detailed version of how to reset your environment, see HowToResetTheEnv.
 
 Ports
 =====
