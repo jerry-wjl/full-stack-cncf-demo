@@ -53,7 +53,21 @@ and wait to complete
 
 <img src="img/008-jenkins.png" alt="waiting">
 
-Next click on the "_Available_" tab and then seach for Kubernetes in the "Filter" box. Check the "_Kubernetes_" plugin and select "_Install without restart_" button. Next add the "_docker-build-step_" plugin the same way as above.
+Next click on the "_Available_" tab and then seach for Kubernetes in the "Filter" box. Check the "_Kubernetes_" plugin and select "_Install without restart_" button. 
+
+<img src="img/009-jenkins.png" alt="kubernetes" width="500" height="500">
+
+...and wait for it to complete
+
+<img src="img/010-jenkins" alt="k8s plugin" width="500" height="500">
+
+Next add the "_docker-build-step_" plugin the same way as above.
+
+<img src="img/011-jenkins.png" alt="docker build step" width="500" height="500">
+
+...and wait for it to complete
+
+<img src="img/012-jenkins.png" align="docker build step completed" width="500" height="500">
 
 Next go to main dashboard and click on "_New Item_" on the top left. Enter "_Item Name_" as `cncfdemo` and click "_Pipeline_" and "_OK_" at the bottom. You will open in a config page for this pipeline.
 Set the following fields:
