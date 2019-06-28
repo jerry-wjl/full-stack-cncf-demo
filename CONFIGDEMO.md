@@ -37,7 +37,13 @@ You will end up at "_Create First Admin User_" page. Fill out the information an
 
 <img src="img/004-jenkins.png" alt="first admin" width="500" height="500">
 
-Once completed, you should end up at "_Instance Configuration_". Ensure you don't have `localhost` as the hostname, but a proper hostname. Hopefully you would have taken heed at the begining of this document and added the host `devnode` in your hosts file and/or dns so you can get to this machine by name. Click "_Finish_" and you should be logged into Jenkins.
+Once completed, you should end up at "_Instance Configuration_". Ensure you don't have `localhost` as the hostname, but a proper hostname. Hopefully you would have taken heed at the begining of this document and added the host `devnode` in your hosts file and/or dns so you can get to this machine by name. Click "_Save and Finish_"
+
+<img src="img/005-jenkins.png" alt="instance config" width="500" height="500">
+
+Next click "_Stat using Jenkins_"
+
+<img src="img/006-jenkins.png" alt="start using jenkins" width="500" height="500">
 
 Now that you are in, click on
 
