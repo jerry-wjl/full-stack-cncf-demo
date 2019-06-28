@@ -14,8 +14,6 @@ Running the demo
 
 **NOTE:** If you are on a Windows machine and are having difficulty updating your `hosts` file, please see the [TroubleShooting](TROUBLESHOOTING.md) guide for how to resolve this.
 
-## Demo Steps
-
 Setting up Jenkins CI/CD
 ========================
 
@@ -137,16 +135,3 @@ Check with
 `$ kubectl get hpa`
 
 Run some load and you will see the pods counts go up and even kick off on the master node which is untainted.
-
-How to demo the app
-===================
-
-Typically you can show 4 things.
-
-	  1. Populate the database with new data (will not trigger a build)
-	  2. Edit a file in git and commit it (will trigger a build and rolling upgrade)
-	  3. Scale up kubernetes deployment (edit kubernetes/cncfdemo.yml and commit which will trigger a build and rolling upgrade)
-	  4. Show metrics - i.e do some sales and show real time data getting populated.
-	  5. Generate some load and see the autoscaling trigger
-
-....constantly being updated
