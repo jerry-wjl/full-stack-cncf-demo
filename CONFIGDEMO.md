@@ -25,11 +25,11 @@ Go to the URL on devnode http://devnode:4000 and enter that.
 
 <img src="img/001-jenkins.png" alt="Initial Jenkins login" width="500" height="500">
 
-Click on "_Install Suggested Plugins_" and wait
-a while. You will end up at "_Create First Admin User_" page. Finish filling that in and you should end up at "_Instance Configuration_".
-Ensure you don't have `localhost` as the hostname, but a proper hostname. Hopefully you would have taken heed at the begining of this
-document and added the host `devnode` in your hosts file and/or dns so you can get to this machine by name. Click "_Finish_" and you should
-be logged into Jenkins.
+Next click on "_Install Suggested Plugins_" and wait a while.
+
+<img src="img/002-jenkins.png" alt="Install Suggested Plugins" width="500" height="500">
+
+You will end up at "_Create First Admin User_" page. Finish filling that in and you should end up at "_Instance Configuration_". Ensure you don't have `localhost` as the hostname, but a proper hostname. Hopefully you would have taken heed at the begining of this document and added the host `devnode` in your hosts file and/or dns so you can get to this machine by name. Click "_Finish_" and you should be logged into Jenkins.
 
 Now that you are in, click on
 
