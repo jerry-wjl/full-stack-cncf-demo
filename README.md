@@ -61,7 +61,7 @@ Post Initialization Checks
 
 Once completed, on your local host (not vm), you should be able to go to the URL where Jenkins is running
 
-     http://devnode:4000
+     [http://devnode:4000](http://devnode:4000)
 
 and you should get the Jenkins welcome screen. We cover how to configure Jenkins in detail later. For now, you can just confirm that Jenkins was deployed by visiting the URL above.
 
