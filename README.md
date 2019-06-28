@@ -65,11 +65,11 @@ Once completed, on your local host (not vm), you should be able to go to the URL
 
 and you should get the Jenkins welcome screen. We cover how to configure Jenkins in detail later. For now, you can just confirm that Jenkins was deployed by visiting the URL above.
 
-You can login passwordless to the devnode as user demo using
+Next, login to the `devnode` as user `demo` as follows
     
      $ ssh demo@devnode -i id_rsa
 
-You can check the status of the kubernetes cluster from the devnode (after you have logged in above) using
+Check the status of the kubernetes cluster from the devnode (after you have logged in above) using
 
      $ kubectl get nodes
 
