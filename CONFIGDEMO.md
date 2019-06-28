@@ -143,8 +143,6 @@ Now browse to the link
 
 and use the token from above
 
-**You are all set up now to do the whole demo**
-
 Autoscaling (a.k.a HPA - Horizontal Pod Autoscaling)
 ----------------------------------------------------
 
@@ -161,3 +159,8 @@ Check with
 `$ kubectl get hpa`
 
 Run some load and you will see the pods counts go up and even kick off on the master node which is untainted.
+
+Next Steps
+----------
+
+* [Running your first Jenkins build](FIRSTJENKINSBUILD.md)
