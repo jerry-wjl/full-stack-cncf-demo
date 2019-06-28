@@ -67,18 +67,36 @@ Next add the "_docker-build-step_" plugin the same way as above.
 
 ...and wait for it to complete
 
-<img src="img/012-jenkins.png" align="docker build step completed" width="500" height="500">
+<img src="img/012-jenkins.png" alt="docker build step completed" width="500" height="500">
 
-Next go to main dashboard and click on "_New Item_" on the top left. Enter "_Item Name_" as `cncfdemo` and click "_Pipeline_" and "_OK_" at the bottom. You will open in a config page for this pipeline.
+Next go to main dashboard and click on "_New Item_" on the top left. 
+
+<img src="img/013-jenkins.png" alt="new item" width="693px" height="555px">
+
+Enter "_Item Name_" as `cncfdemo` and click "_Pipeline_" and "_OK_" at the bottom. You will open in a config page for this pipeline.
+
+<img src="img/014-jenkins.png" alt="pipeline" width="811px" height="398px">
+
 Set the following fields:
 
 * Description: **The CNCF demo**
 * Build Triggers:
   * Check **Trigger build remotely**, and then choose a random auth token, perhaps "_**cncfdemotoken**_" but must match the value in the post-commit trigger script below
+
+<img src="img/015-jenkins.png" alt="item config" width="810px" height="503px">
+
 * Pipeline -> Definintion: **Choose Pipeline from SCM**
+
+<img src="img/016-jenkins.png" alt="pipeline def" width="810px" height="490px">
+
 * Pipeline -> SCM (Source code management): **git**
+
+<img src="img/017-jenkins.png" alt="pipeline scm" width="807px" height="492px">
+
 * Pipeline -> Repositories: **devnode:git/cncfdemo**
 * Pipeline -> Script Path: **Jenkinsfile**
+
+<img src="img/018-jenkins.png" align="set repo" width="808px" height="533">
 
 Next set up webhook access. 
 
