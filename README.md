@@ -63,6 +63,8 @@ Once completed, on your local host (not vm), you should be able to go to the URL
 
 [http://devnode:4000](http://devnode:4000)
 
+<img src="img/jenkins_init_login.png" alt="initial jenkins login" width="747px" height="703px">
+
 and you should get the Jenkins welcome screen. Don't bother attempting to login and configure Jenkins yet, we will cover how to configure Jenkins in detail later. For now, you can just confirm that Jenkins was deployed by visiting the URL above.
 
 Next, login to the `devnode` as user `demo` as follows
