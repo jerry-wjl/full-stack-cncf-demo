@@ -70,8 +70,8 @@ printf '#!/bin/sh\ndocker run --name registry -itd -p :5000:5000 -v `pwd`:/certs
 chmod +x /home/demo/registry.sh
 /home/demo/registry.sh
 
-# Build our own node with oraclelinux
-docker build -f /vagrant/node/Dockerfile -t node /vagrant/node
+# Pull official nodejs slim image
+docker pull node:10-slim
 
 # Finally pull container registry images
 
