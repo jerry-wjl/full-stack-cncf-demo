@@ -35,7 +35,7 @@ Next we need to populate the database.
 
 <img src="img/010-firstjenksbld.png" alt="populate database" height="527px" height="152px">
 
-Set up our userid and email so we know who is interacting with the local repo. You can choose anything you like here (no emails or user
+Now that that's done it's time to set up our userid and email so we know who is interacting with the local repo. You can choose anything you like here (no emails or user
 names are leaked)
 
     git config --global user.email "demo@oracle.com"
