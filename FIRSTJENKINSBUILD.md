@@ -44,4 +44,4 @@ Now add a .gitignore and push everything else to our local repo
 
 Now go to your Jenkins Dashboard and click on the `cncfdemo` link to view the progress and status of your build.
 
-<img src="img/007-firstjenkinsbuild.png" alt="jenkins dashboard" width="1440px" height="263px">
+<img src="img/007-firstjenksbld.png" alt="jenkins dashboard" width="1440px" height="263px">
