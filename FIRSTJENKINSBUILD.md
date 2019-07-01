@@ -20,6 +20,14 @@ Next we will add the bbc repository to the git repo on devnode. First, we remove
 
 <img src="img/002-firstjenksbld.png" alt="clean repo for local import" width="817px" height="156px"> 
 
+Before we can complete a successful build we need to run the following command
+
+    $ npm install
+
+<img src="img/008-firstjenksbld.png" alt="npm install" width="1107px" height="67px">
+
+<img src="img/009-firstjenksbld.png" alt="npm install complete" width="354px" height="336px">
+
 Set up our userid and email so we know who is interacting with the local repo. You can choose anything you like here (no emails or user
 names are leaked)
 
