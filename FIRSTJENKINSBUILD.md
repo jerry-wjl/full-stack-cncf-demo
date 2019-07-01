@@ -60,3 +60,15 @@ Now add a .gitignore and push everything else to our local repo
 Now go to your Jenkins Dashboard and click on the `cncfdemo` link to view the progress and status of your build.
 
 <img src="img/007-firstjenksbld.png" alt="jenkins dashboard" width="1080px" height="184px">
+
+<img src="img/011-firstjenksbld.png" alt="cncf pipline" width="936px" width="228px">
+
+If you configured everything correctly, you will see the progress of your build.
+
+<img src="img/012-firstjenksbld.png" alt="cncf pipline progress" width="935px" width="317px">
+
+<img src="img/013-firstjenksbld.png" alt="cncf pipline complete" width="936px" width="302px">
+
+Once compelte, go to the application page [Billionares Buyers Club](http://devnode:30000/#!/)
+
+<img src="img/014-firstjenksbld.png" alt="bbc" width="935px" height="478px">
