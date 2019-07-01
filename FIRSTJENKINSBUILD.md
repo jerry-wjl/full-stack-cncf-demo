@@ -30,8 +30,8 @@ Before we can complete a successful build we need to run the following command
 
 Next we need to populate the database.
 
-   $ export MONGODB=mongodb://localhost/cncfdemo
-   $ node populate.js ./cars.json
+    $ export MONGODB=mongodb://localhost/cncfdemo
+    $ node populate.js ./cars.json
 
 <img src="img/010-firstjenksbld.png" alt="populate database" height="527px" height="152px">
 
