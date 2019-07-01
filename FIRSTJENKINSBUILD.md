@@ -28,6 +28,13 @@ Before we can complete a successful build we need to run the following command
 
 <img src="img/009-firstjenksbld.png" alt="npm install complete" width="354px" height="336px">
 
+Next we need to populate the database.
+
+   $ export MONGODB=mongodb://localhost/cncfdemo
+   $ node populate.js ./cars.json
+
+<img src="img/010-firstjenksbld.png" alt="populate database" height="703px" height="203px">
+
 Set up our userid and email so we know who is interacting with the local repo. You can choose anything you like here (no emails or user
 names are leaked)
 
