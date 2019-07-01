@@ -72,3 +72,10 @@ If you configured everything correctly, you will see the progress of your build.
 Once compelte, go to the application page [Billionares Buyers Club](http://devnode:30000/#!/)
 
 <img src="img/014-firstjenksbld.png" alt="bbc" width="935px" height="478px">
+
+...and you're done!
+
+Next Steps
+----------
+
+* [Demo flow](DEMOFLOW.md)
