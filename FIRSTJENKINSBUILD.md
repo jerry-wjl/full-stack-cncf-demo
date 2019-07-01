@@ -41,3 +41,7 @@ Now add a .gitignore and push everything else to our local repo
 <img src="img/005-firstjenksbld.png" alt="git commit" width="877px" height="938px">
 
 <img src="img/006-firstjenksbld.png" alt="git push" width="763px" height="253px">
+
+Now go to your Jenkins Dashboard and click on the `cncfdemo` link to view the progress and status of your build.
+
+<img src="img/007-firstjenkinsbuild.png" alt="jenkins dashboard" width="1440px" height="263px">
