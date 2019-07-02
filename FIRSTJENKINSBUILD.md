@@ -78,4 +78,4 @@ Once compelte, go to the application page [Billionares Buyers Club](http://devno
 Next Steps
 ----------
 
-* [Demo flow](DEMOFLOW.md)
+* [Demo flow](https://github.com/olsc-devops/bbc/blob/docs-dev/docs/DEMOFLOW.md)
