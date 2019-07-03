@@ -132,4 +132,4 @@ Next steps
 ==========
 
 The next steps will show you how to build a shopping app and do a demo pusing it to the local repo on devnode
-and then building a pipeline and deploying to kubernetes. Start by clicking [here](CONFIGDEMO.md) to learn how to set up the demo environment.
+and then building a pipeline and deploying to kubernetes. Start by clicking [here](docs/CONFIGDEMO.md) to learn how to set up the demo environment.
