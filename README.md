@@ -16,7 +16,7 @@ registry with self signed SSL to hold the kubernetes images, jenkins, mongo and 
 * **kworker1** with IP 192.168.56.202. This is the kubernetes worker node.
 
 Initalizing the environment
-============================
+---------------------------
 
 If you've already pulled this repo on your local machine, you're good to go. If not, clone the repo as follows.
 
@@ -95,7 +95,7 @@ You can quickly demo how easy it is to build a kubernetes cluster to a customer.
 For a more detailed version of how to reset your environment, see HowToResetTheEnv.
 
 Ports
-=====
+-----
 
 These are the open ports on devnode
 
@@ -105,7 +105,7 @@ These are the open ports on devnode
       git is accessible via ssh port 22
 
 Docker images 
-=============
+-------------
 
 These are images available in the local docker registry on devnode
 
@@ -129,7 +129,7 @@ These are images available in the local docker registry on devnode
       registry    
       
 Next steps
-==========
+----------
 
 The next steps will show you how to build a shopping app and do a demo pusing it to the local repo on devnode
 and then building a pipeline and deploying to kubernetes. Start by clicking [here](docs/CONFIGDEMO.md) to learn how to set up the demo environment.
