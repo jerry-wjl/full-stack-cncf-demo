@@ -23,7 +23,7 @@ You will probably have missed the password messages when building the vagrant in
 
 Go to the URL on devnode http://devnode:4000 and enter in the **Administrator Password** box. Then click **Continue**
 
-<img src="img/001-jenkins.png" alt="Initial Jenkins login" width="500" height="500">
+<img src="../img/001-jenkins.png" alt="Initial Jenkins login" width="500" height="500">
 
 Next click on **Install Suggested Plugins**
 
