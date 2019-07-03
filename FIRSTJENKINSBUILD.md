@@ -78,4 +78,5 @@ Once compelte, go to the application page [Billionares Buyers Club](http://devno
 Next Steps
 ----------
 
-* [Demo flow](https://github.com/olsc-devops/bbc/blob/docs-dev/docs/DEMOFLOW.md)
+* [Demo flow](https://github.com/olsc-devops/bbc/blob/docs-dev/docs/DEMOFLOW.md) - for those using vagrant boxes (aka [Full Stack Demo](https://olsc-devops.github.io/full-stack-cncf-demo/))
+* [How to Independently Run the Demo](docs/INDEPENDENTRUN.md) ...for those of you not using the vagrant boxes
