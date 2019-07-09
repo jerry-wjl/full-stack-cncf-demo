@@ -13,14 +13,14 @@ printf '\nPermitRootLogin yes\n' >> /etc/ssh/sshd_config
 printf '\nStrictHostKeyChecking no\n' >>/etc/ssh/ssh_config
 systemctl restart sshd
 
-# create docker brtfs fs
+# create docker fs
 mkfs.ext4 -F -L var-lib-docker /dev/sdb
 echo LABEL=var-lib-docker /var/lib/docker auto defaults 0 1 >>/etc/fstab
 mkdir /var/lib/docker
 mount /var/lib/docker
 
 yum-config-manager --enable ol7_addons ol7_latest ol7_optional_latest ol7_UEKR5
-yum -y install docker-engine docker-registry java-11-openjdk git mongodb-server kubeadm kubectl haproxy nodejs
+yum -y install docker-engine docker-registry java-11-openjdk git mongodb-server kubeadm kubectl haproxy nodejs nfs-utils
 yum -y upgrade
 
 # enable docker
@@ -70,8 +70,8 @@ printf '#!/bin/sh\ndocker run --name registry -itd -p :5000:5000 -v `pwd`:/certs
 chmod +x /home/demo/registry.sh
 /home/demo/registry.sh
 
-# Pull node
-docker pull node
+# Build our own node with oraclelinux
+docker build -f /vagrant/node/Dockerfile -t node /vagrant/node
 
 # Finally pull container registry images
 
@@ -130,6 +130,13 @@ EOF
 systemctl daemon-reload
 systemctl start node_exporter
 systemctl enable node_exporter
+
+# Set up nfs server for CSI
+mkdir /nfs
+chmod a+rwt /nfs
+printf '/nfs *(rw,no_root_squash,async,no_subtree_check,insecure)' >/etc/exports
+systemctl start nfs-server
+systemctl enable nfs-server
 
 # Fix ownership because we did everything as root --- THIS SHOULD BE THE LAST STEP
 chown -R demo:demo /home/demo
