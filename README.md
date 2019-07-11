@@ -1,11 +1,7 @@
 Full Stack CNCF Demo Environment
 ================================
 
-This repository is a way to demo a CNCF dev environmant to a customer site totally disconnected from a nework.
-This should build hands off without any interaction. It works well on a 16GB laptop as there are 3 VM instances
-created each of 4GB. It has been tested on Linux, Mac, and Windows without issues. It demonstrates several features from our
-LOB including Virtualbox, kubernetes, and git, mongo, node all pulled from our local repos. Also jenkins (though not
-the X version) for CI/CD pipeline demonstrations
+This repository is a way to demo a CNCF dev environment to a customer site totally disconnected from a nework. This should build hands off without any interaction. It works well on a 16GB laptop as there are 3 VM instances created each of 4GB. It has been tested on Linux, Mac, and Windows without issues. This demo also utilizes Jenkins (not Jenkins X) as a CI/CD pipline demonstration; Jenkins X will become part of OLCNE at a later date.
 
 The 3 VMS are all with Oracle Linux 7.6:
 
