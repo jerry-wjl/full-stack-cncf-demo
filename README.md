@@ -1,7 +1,7 @@
 Full Stack CNCF Demo Environment
 ================================
 
-This repository is a way to demo a CNCF dev environmant to a customer site totally disconnected from a nework.
+This repository is a way to demo a CNCF dev environment to a customer site totally disconnected from a nework.
 This should build hands off without any interaction. It works well on a 16GB laptop as there are 3 VM instances
 created each of 4GB. It has been tested on Linux and Mac without issues. It demonstrates several features from our
 LOB including Virtualbox, kubernetes, and git, mongo, node all pulled from our local repos. Also jenkins (though not
