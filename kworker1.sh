@@ -3,6 +3,10 @@
 setenforce 0
 sed -i '/^SELINUX.*/s//SELINUX=disabled/' /etc/selinux/config
 
+# Fix DNS
+sed -i '/PEERDNS/d;$aPEERDNS=no' /etc/sysconfig/network-scripts/ifcfg-eth0
+printf 'nameserver 10.96.0.10\ndomain cluster.local\nsearch default.svc.cluster.local svc.cluster.local cluster.local\noptions ndots:5\n' >>/etc/resolv.conf
+
 # set up hosts file
 printf '192.168.56.200 devnode\n192.168.56.201 kmaster\n192.168.56.202 kworker1\n' >>/etc/hosts
 
