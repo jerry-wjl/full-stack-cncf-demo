@@ -4,6 +4,10 @@
 setenforce 0
 sed -i '/^SELINUX.*/s//SELINUX=disabled/' /etc/selinux/config
 
+# Fix DNS
+sed -i '/PEERDNS/d;$aPEERDNS=no' /etc/sysconfig/network-scripts/ifcfg-eth0
+printf 'nameserver 10.96.0.10\ndomain cluster.local\nsearch default.svc.cluster.local svc.cluster.local cluster.local\noptions ndots:5\n' >>/etc/resolv.conf
+
 # set up hosts file
 printf '192.168.56.200 devnode\n192.168.56.201 kmaster\n192.168.56.202 kworker1\n' >>/etc/hosts
 
@@ -61,8 +65,7 @@ systemctl daemon-reload
 systemctl restart kubectl-proxy
 
 # Download Prometheus Node Exporter
-wget -nv https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
-tar xvfz node_exporter-*.*-amd64.tar.gz
+curl -s -L https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz|tar xfz -
 mv node_exporter-*.*-amd64 /usr/share/node_exporter
 
 # Create Node Exporter service file
@@ -84,8 +87,16 @@ systemctl daemon-reload
 systemctl start node_exporter
 systemctl enable node_exporter
 
+export KUBECONFIG=/etc/kubernetes/admin.conf
+
+# Fix flannel to listen to eth1 since vbox nat takes eth0
+kubectl -n kube-system get ds kube-flannel-ds -o yaml >/tmp/flannel.yml
+sed -i '/--kube-subnet-mgr/a\        - --iface=eth1' /tmp/flannel.yml
+kubectl delete -f /tmp/flannel.yml
+kubectl create -f /tmp/flannel.yml
+
 # remove taint on the master so we can hpa
-kubectl --kubeconfig=/etc/kubernetes/admin.conf taint nodes kmaster node-role.kubernetes.io/master-
+kubectl taint nodes kmaster node-role.kubernetes.io/master-
 
 # Add metrics for hpa
 curl -s -L https://github.com/kubernetes-incubator/metrics-server/archive/master.tar.gz|tar xfz -
