@@ -5,10 +5,11 @@ if [ "$1" = "" ]; then
     exit 1
 fi
 
-DISK=`vboxmanage list hdds|grep $1|sed s/Location://`
+DISK="`vboxmanage list hdds|grep $1|sed 's/Location: *//'`"
 
 if [ "$DISK" ]; then
+    echo Removing $DISK
     vboxmanage closemedium "$DISK" --delete
-    rmdir `dirname "$DISK"`
+    VBOXPATH=`dirname "$DISK"`
+    rmdir "$VBOXPATH"
 fi
-
